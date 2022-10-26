@@ -69,10 +69,3 @@ josh.coding(); // develop web
 josh.drink(); // drink sth
 josh.design(); // design web
 ```
-
-## 제네릭
-
-### 제네릭이란
-
-- 제네릭이란 타입을 마치 함수의 파라미터처럼 사용하는 것을 의미
--
