@@ -1,0 +1,28 @@
+# 5140. Trunc
+
+### 난이도: 중간
+
+## 문제
+
+Implement the type version of `Math.trunc`, which takes string or number and returns the integer part of a number by removing any fractional digits.
+
+→ 문자열이나 숫자를 받아서 정수부분만 리턴하는 타입을 작성해라!
+
+```tsx
+type A = Trunc<12.34>; // 12
+```
+
+## 정답
+
+```tsx
+type Trunc<S extends string | number> = `${S}` extends `${infer A}.${infer B}`
+  ? A
+  : `${S}`;
+```
+
+## 풀이
+
+- 우선 입력받는 문자열 `S`가 `string`또는 `number`라고 했으니 유니온 타입으로 입력받는다.
+- `S`가 숫자일 경우도 있으므로 문자열 처리를 해주기 위해 `${S}`를 사용.
+- 소수점을 기준으로 `infer A`와 `infer B`로 나눠서 `A`를 타입으로 지정
+- 만약 정수가 들어왔을 경우에는 `S`를 그대로 문자열로 바꿔서 리턴
